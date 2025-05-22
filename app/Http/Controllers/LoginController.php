@@ -20,6 +20,7 @@ class LoginController extends Controller
         $member = Member::where('email',$email)->firstorFail();
 
         if($member->password == $password){
+            session(['member_id' => $member->id]);
             session(['member_logged_in' => true]);
             return redirect()->route('member_home')->with('success','Successfully logged in');
         }

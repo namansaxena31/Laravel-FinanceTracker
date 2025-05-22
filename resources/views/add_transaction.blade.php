@@ -19,21 +19,16 @@
                 </div>
             @endif
 
-            <form action="" method="POST">
+            <form action="{{ route('member_addTransaction') }}" method="POST">
                 @csrf
 
                 <div class="mb-3">
-                    <label for="title" class="form-label">Transaction Title</label>
+                    <label for="title" class="form-label">Transaction Title</label><p style="display:inline;color:red;"> *</p>
                     <input type="text" class="form-control" id="title" name="title" required>
                 </div>
 
                 <div class="mb-3">
-                    <label for="amount" class="form-label">Amount</label>
-                    <input type="number" step="0.01" class="form-control" id="amount" name="amount" required>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Type</label>
+                    <label class="form-label">Type</label><p style="display:inline;color:red;"> *</p>
                     <select class="form-select" name="type" required>
                         <option value="" disabled selected>Select type</option>
                         <option value="income">Income</option>
@@ -42,7 +37,22 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="date" class="form-label">Transaction Date</label>
+                    <label class="form-label">Category</label><p style="display:inline;color:red;"> *</p>
+                    <select class="form-select" name="category" required>
+                        <option value="" disabled selected>Select Category</option>
+                        <option value="food">Food</option>
+                        <option value="groceries">Groceries</option>
+                        <option value="others">Others</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="amount" class="form-label">Amount</label><p style="display:inline;color:red;"> *</p>
+                    <input type="number" step="0.01" class="form-control" id="amount" name="amount" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="date" class="form-label">Transaction Date</label><p style="display:inline;color:red;"> *</p>
                     <input type="date" class="form-control" id="date" name="date" required>
                 </div>
 

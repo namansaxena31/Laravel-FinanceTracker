@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->foreignID('member_id')->constrained()->onDelete('cascade');
+            $table->string('title');
             $table->enum('type', ['income', 'expense']);
+            $table->enum('category', ['food', 'groceries','others']);
             $table->decimal('amount',10,2);
-            $table->string('category');
+            $table->date('date');
             $table->string('description')->nullable();
             $table->timestamps();
         });
