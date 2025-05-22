@@ -21,4 +21,6 @@ Route::prefix('Member')->middleware([MemberLoggedIn::class])->group(function () 
     Route::get('/addTransaction',[MemberController::class,'showAddTransaction'])->name('member_showAddTransaction');
     Route::post('/addTransaction',[TransactionController::class,'addTransaction'])->name('member_addTransaction');
 
+    Route::get('/listTransactions',[TransactionController::class,'listTransactions'])->name('member_listTransactions');
+
 });

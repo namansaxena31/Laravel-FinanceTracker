@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 use App\Models\Member;
 use App\Models\Transaction;
 
 class TransactionController extends Controller
 {
-    public function addTransaction(Request $request)
-    {
+    public function addTransaction(Request $request){
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'type' => 'required|in:income,expense',
@@ -33,5 +33,17 @@ class TransactionController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'Transaction added successfully!');
+    }
+
+    public function listTransactions(){
+        $memberId = session('member_id'); // Assuming user is logged in and session holds their ID
+
+        $transactions = Transaction::where('member_id', $memberId)
+            ->whereMonth('date', Carbon::now()->month)
+            ->whereYear('date', Carbon::now()->year)
+            ->orderBy('date', 'desc')
+            ->get();
+
+        return view('all_transactions', compact('transactions'));
     }
 }
