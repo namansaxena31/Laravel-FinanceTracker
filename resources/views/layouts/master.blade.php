@@ -6,7 +6,7 @@
     <title>@yield('title', 'Finance Tracker')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
-<body>
+<body style="background: linear-gradient(to right, #dcd6f7, #f3e5f5);">
 
 @include('layouts.header')
 

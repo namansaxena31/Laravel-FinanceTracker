@@ -17,5 +17,6 @@ Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 Route::prefix('Member')->middleware([MemberLoggedIn::class])->group(function () {
 
     Route::get('/home',[MemberController::class,'showHome'])->name('member_home');
+    Route::get('/addTransaction',[MemberController::class,'showAddTransaction'])->name('member_addTransaction');
 
 });

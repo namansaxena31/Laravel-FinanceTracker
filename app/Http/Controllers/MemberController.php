@@ -10,4 +10,8 @@ class MemberController extends Controller
     public function showHome(){
         return view('home');
     }
+
+    public function showAddTransaction(){
+        return view('add_transaction');
+    }
 }

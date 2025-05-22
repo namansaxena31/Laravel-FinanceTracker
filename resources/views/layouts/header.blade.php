@@ -15,7 +15,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="transactionDropdown">
               <li><a class="dropdown-item" href="">All Transactions</a></li>
-              <li><a class="dropdown-item" href="">Add Transaction</a></li>
+              <li><a class="dropdown-item" href="{{ route('member_addTransaction') }}">Add Transaction</a></li>
             </ul>
           </li>
           <li class="nav-item">       
