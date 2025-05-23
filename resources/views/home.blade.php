@@ -8,19 +8,20 @@
         <h1 class="display-5 fw-bold">Welcome to Finance Tracker</h1>
         <p class="lead text-muted">Track your expenses, analyze yearly trends, and stay on top of your financial goals.</p>
     </div>
+    @if($income || $expense)
+        <h2 class="text-center mb-4">This Month's Overview</h2>
 
-    <h2 class="text-center mb-4">This Month's Overview</h2>
-
-    <div class="row justify-content-center">
-        <div class="col-md-5 text-center mb-4">
-            <h5 class="mb-3">Income vs Expense</h5>
-            <canvas id="financeChart" width="150" height="150" style="max-width: 100%; height: auto;"></canvas>
+        <div class="row justify-content-center">
+            <div class="col-md-5 text-center mb-4">
+                <h5 class="mb-3">Income vs Expense</h5>
+                <canvas id="financeChart" width="150" height="150" style="max-width: 100%; height: auto;"></canvas>
+            </div>
+            <div class="col-md-5 text-center mb-4">
+                <h5 class="mb-3">Category Breakdown</h5>
+                <canvas id="categoryChart" width="150" height="150" style="max-width: 100%; height: auto;"></canvas>
+            </div>
         </div>
-        <div class="col-md-5 text-center mb-4">
-            <h5 class="mb-3">Category Breakdown</h5>
-            <canvas id="categoryChart" width="150" height="150" style="max-width: 100%; height: auto;"></canvas>
-        </div>
-    </div>
+    @endif
 </div>
 <script>
     const financeChart = new Chart(document.getElementById('financeChart'), {
